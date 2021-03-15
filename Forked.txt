@@ -1,0 +1,2 @@
+Forking a repository allows us to freely experiment with changes without affecting the original project.
+Open source software is based on the idea that by sharing code, we can make better, more reliable software
