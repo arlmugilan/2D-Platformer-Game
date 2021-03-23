@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
+
+    public float speed;
     private void Awake()
     {
         Debug.Log("Player controller awake");
@@ -18,6 +20,20 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         Debug.Log(horizontal);
+
+        MoveCharacter(horizontal);
+        PlayMovementAnimation(horizontal);               
+    }
+
+    private void MoveCharacter(float horizontal)
+    {
+        Vector3 position = transform.position;
+        position.x += horizontal * speed * Time.deltaTime;
+        transform.position = position;            
+   }
+
+    private void PlayMovementAnimation(float horizontal)
+    {
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
         Vector3 scale = transform.localScale;
